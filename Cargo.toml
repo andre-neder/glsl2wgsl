@@ -1,0 +1,12 @@
+[package]
+name = "glsl2wgsl"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+naga = { version = "0.10", features = ["validate", "wgsl-out", "glsl-in"] }
+wasm-bindgen = "0.2"
