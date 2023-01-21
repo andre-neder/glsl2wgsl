@@ -8,5 +8,6 @@ path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
+console_error_panic_hook = "0.1.7"
 naga = { version = "0.10", features = ["validate", "wgsl-out", "glsl-in"] }
 wasm-bindgen = "0.2"

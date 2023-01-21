@@ -1,5 +1,7 @@
 use wasm_bindgen::prelude::*;
 
+extern crate console_error_panic_hook;
+
 use naga::ShaderStage;
 
 use naga::front::glsl::{Parser, Options};
@@ -11,12 +13,8 @@ extern {
 }
 
 #[wasm_bindgen]
-pub fn greet(name: &str) {
-    alert(&format!("Hello, {}!", name));
-}
-
-#[wasm_bindgen]
 pub fn glsl2wgsl(glsl: &str, ext: &str) -> String {
+    console_error_panic_hook::set_once();
     let mut parser = Parser::default();
     let stage = match ext {
         "vert" => ShaderStage::Vertex,
